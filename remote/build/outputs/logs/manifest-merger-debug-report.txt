@@ -1,0 +1,25 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml:1:1-43
+INJECTED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml:1:1-43
+INJECTED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml:1:1-43
+	package
+		ADDED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml:1:11-40
+		INJECTED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml
+		INJECTED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml:1:1-43
+uses-sdk
+INJECTED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml
+INJECTED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml
+INJECTED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml
+INJECTED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml
+		ADDED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml
+		INJECTED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml
+		ADDED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml
+		INJECTED from /Users/omarabouelfotoh/Documents/Projects/MoviesApp/remote/src/main/AndroidManifest.xml

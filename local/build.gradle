@@ -1,0 +1,49 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk Configs.compileSdkVersion
+
+    defaultConfig {
+        minSdk Configs.minSdkVersion
+        targetSdk Configs.targetSdkVersion
+
+        testInstrumentationRunner Configs.testInstrumentationRunner
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+    implementation project(path: ':model')
+
+    //DI-Hilt
+    implementation(Dependencies.daggerHilt)
+    implementation(Dependencies.hiltNavigationCompose)
+    kapt(Dependencies.daggerHiltCompiler)
+
+    //Data
+    implementation Dependencies.datastore
+    implementation Dependencies.datastorePrefers
+
+    //Threading-Coroutines
+    implementation(Dependencies.coroutinesCore)
+    implementation(Dependencies.coroutinesCoreAndroid)
+}

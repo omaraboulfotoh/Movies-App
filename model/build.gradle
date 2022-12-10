@@ -1,0 +1,45 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk Configs.compileSdkVersion
+
+    defaultConfig {
+        minSdk Configs.minSdkVersion
+        targetSdk Configs.targetSdkVersion
+
+        testInstrumentationRunner Configs.testInstrumentationRunner
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+    implementation(Dependencies.stdlib)
+    api(Dependencies.gson)
+    implementation(Dependencies.annotations)
+    implementation(Dependencies.moshi)
+    implementation(Dependencies.gson)
+    kapt(Dependencies.moshiCodegen)
+
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.7.10"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0"
+
+}

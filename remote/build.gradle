@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdk Configs.compileSdkVersion
+
+    defaultConfig {
+        minSdk Configs.minSdkVersion
+        targetSdk Configs.targetSdkVersion
+
+        testInstrumentationRunner Configs.testInstrumentationRunner
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+    implementation project(path: ':model')
+    implementation project(path: ':local')
+    //Networking
+    implementation(Dependencies.retrofit)
+    implementation(Dependencies.retrofitGson)
+    implementation(Dependencies.retrofitMoshiConverter)
+    implementation(Dependencies.okHttp)
+    implementation(Dependencies.okHttpLoggingInterceptor)
+
+    //Json
+    implementation(Dependencies.moshi)
+    implementation(Dependencies.gson)
+    kapt(Dependencies.moshiCodegen)
+
+    //DI-Hilt
+    implementation(Dependencies.daggerHilt)
+    implementation(Dependencies.hiltNavigationCompose)
+    kapt(Dependencies.daggerHiltCompiler)
+
+    //Threading-Coroutines
+    implementation(Dependencies.coroutinesCore)
+    implementation(Dependencies.coroutinesCoreAndroid)
+
+    testImplementation Dependencies.junit4
+    androidTestImplementation Dependencies.junitExtensions
+    androidTestImplementation Dependencies.espressoCore
+}

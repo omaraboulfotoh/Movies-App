@@ -1,0 +1,135 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+
+    compileSdk Configs.compileSdkVersion
+
+    defaultConfig {
+        applicationId Configs.applicationId
+        minSdk Configs.minSdkVersion
+        targetSdk Configs.targetSdkVersion
+        versionCode Configs.versionCode
+        versionName Configs.versionName
+        flavorDimensions "default"
+        testInstrumentationRunner Configs.testInstrumentationRunner
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled true
+            shrinkResources false
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        dev {
+            dimension 'default'
+            buildConfigField "String", "BASE_URL", "\"http://67.207.85.185:8082/api/\""
+            buildConfigField "String", "IMAGE_BASE_URL", "\"https:\""
+            versionNameSuffix "-dev"
+        }
+        prod {
+            dimension 'default'
+            buildConfigField "String", "BASE_URL", "\"http://67.207.85.185:8082/api/\""
+            buildConfigField "String", "IMAGE_BASE_URL", "\"https:\""
+            versionNameSuffix "-prod"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+
+    //Imported Modules
+    implementation project(path: ':core')
+    implementation project(path: ':remote')
+    implementation project(path: ':model')
+    implementation project(path: ':local')
+
+    //Support
+    implementation(Dependencies.kotlin)
+    implementation(Dependencies.coreKtx)
+    implementation(Dependencies.appCompat)
+
+    //UI
+    implementation(Dependencies.material)
+    implementation(Dependencies.constraintLayout)
+    implementation(Dependencies.swipeRefreshLayout)
+
+    //DI-Hilt
+    implementation(Dependencies.daggerHilt)
+    implementation(Dependencies.hiltNavigationCompose)
+    kapt(Dependencies.daggerHiltCompiler)
+
+    //Lifecycle
+    implementation(Dependencies.lifecycle_viewmodel)
+    implementation(Dependencies.lifecycle_liveData)
+    implementation(Dependencies.lifecycle_runtime)
+
+    //Json
+    implementation(Dependencies.moshi)
+    implementation(Dependencies.gson)
+    kapt(Dependencies.moshiCodegen)
+
+    //Threading-Coroutines
+    implementation(Dependencies.coroutinesCore)
+    implementation(Dependencies.coroutinesCoreAndroid)
+
+    //Navigation Component
+    implementation Dependencies.navigationComponent
+    implementation Dependencies.navigationComponentFrag
+
+    // network
+    implementation(Dependencies.retrofit)
+    implementation(Dependencies.okHttp)
+
+    // image loader
+    implementation Dependencies.picasso
+
+    //Utils
+    implementation(Dependencies.accompanistSwipeRefresh)
+    implementation Dependencies.animationLib
+    implementation Dependencies.legacy
+
+    //Unit Testing
+    testImplementation(Dependencies.junit4)
+    testImplementation(Dependencies.junitExtensionsKtx)
+    testImplementation(Dependencies.truth)
+    testImplementation(Dependencies.mockk)
+    testImplementation(Dependencies.robolectric)
+    testImplementation(Dependencies.androidArchCoreTest)
+    testImplementation(Dependencies.coroutinesTest)
+
+    //UI Testing
+    androidTestImplementation(Dependencies.junitExtensions)
+    androidTestImplementation(Dependencies.espressoCore)
+    androidTestImplementation(Dependencies.composeUiTest)
+
+}
+
+kapt {
+    correctErrorTypes = true
+}

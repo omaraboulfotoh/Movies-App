@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="10dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="30dp">
+
+        <ImageView
+            android:id="@+id/iv_err"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/ic_warning_err"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_dialog_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/sfprodisplay_bold"
+            android:gravity="center"
+            android:textColor="@color/Color_primary_dark"
+            android:textSize="@dimen/fontSizeSmall"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_err"
+            tools:text="@string/something_went_wrong_retry" />
+
+        <Button
+            android:id="@+id/btn_retry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/retry_action"
+            android:theme="@style/AppTheme.DefaultButton"
+            app:layout_constraintEnd_toEndOf="@id/tv_dialog_message"
+            app:layout_constraintStart_toEndOf="@id/tv_dialog_cancel"
+            app:layout_constraintTop_toBottomOf="@id/tv_dialog_message" />
+
+        <TextView
+            android:id="@+id/tv_dialog_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/sfprodisplay_bold"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/cancel"
+            android:textColor="@color/Color_primary_dark"
+            android:textSize="@dimen/fontSizeSmall"
+            app:layout_constraintBottom_toBottomOf="@id/btn_retry"
+            app:layout_constraintEnd_toStartOf="@id/btn_retry"
+            app:layout_constraintStart_toStartOf="@id/tv_dialog_message"
+            app:layout_constraintTop_toTopOf="@id/btn_retry" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
+

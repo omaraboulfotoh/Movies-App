@@ -1,0 +1,74 @@
+-if class com.android.model.responses.base.BaseWrapper
+-keepnames class com.android.model.responses.base.BaseWrapper
+-if class com.android.model.responses.base.BaseWrapper
+-keep class com.android.model.responses.base.BaseWrapperJsonAdapter {
+    public <init>(com.squareup.moshi.Moshi,java.lang.reflect.Type[]);
+}
+-if class com.android.model.responses.base.BaseWrapper
+-keepnames class kotlin.jvm.internal.DefaultConstructorMarker
+-if class com.android.model.responses.base.BaseWrapper
+-keepclassmembers class com.android.model.responses.base.BaseWrapper {
+    public synthetic <init>(java.lang.Object,java.lang.String,int,kotlin.jvm.internal.DefaultConstructorMarker);
+}
+
+-if class com.android.model.responses.base.pagination.PageMeta
+-keepnames class com.android.model.responses.base.pagination.PageMeta
+-if class com.android.model.responses.base.pagination.PageMeta
+-keep class com.android.model.responses.base.pagination.PageMetaJsonAdapter {
+    public <init>(com.squareup.moshi.Moshi);
+}
+
+-if class com.android.model.responses.base.error.AuthError
+-keepnames class com.android.model.responses.base.error.AuthError
+-if class com.android.model.responses.base.error.AuthError
+-keep class com.android.model.responses.base.error.AuthErrorJsonAdapter {
+    public <init>(com.squareup.moshi.Moshi);
+}
+
+-if class com.android.model.responses.base.singlelist.SingleArrayResponseWrapper
+-keepnames class com.android.model.responses.base.singlelist.SingleArrayResponseWrapper
+-if class com.android.model.responses.base.singlelist.SingleArrayResponseWrapper
+-keep class com.android.model.responses.base.singlelist.SingleArrayResponseWrapperJsonAdapter {
+    public <init>(com.squareup.moshi.Moshi,java.lang.reflect.Type[]);
+}
+
+-if class com.android.model.responses.base.BaseWrapperWithErrorCode
+-keepnames class com.android.model.responses.base.BaseWrapperWithErrorCode
+-if class com.android.model.responses.base.BaseWrapperWithErrorCode
+-keep class com.android.model.responses.base.BaseWrapperWithErrorCodeJsonAdapter {
+    public <init>(com.squareup.moshi.Moshi,java.lang.reflect.Type[]);
+}
+-if class com.android.model.responses.base.BaseWrapperWithErrorCode
+-keepnames class kotlin.jvm.internal.DefaultConstructorMarker
+-if class com.android.model.responses.base.BaseWrapperWithErrorCode
+-keepclassmembers class com.android.model.responses.base.BaseWrapperWithErrorCode {
+    public synthetic <init>(java.lang.Object,java.lang.String,java.lang.Long,int,kotlin.jvm.internal.DefaultConstructorMarker);
+}
+
+-if class com.android.model.responses.base.error.Error
+-keepnames class com.android.model.responses.base.error.Error
+-if class com.android.model.responses.base.error.Error
+-keep class com.android.model.responses.base.error.ErrorJsonAdapter {
+    public <init>(com.squareup.moshi.Moshi);
+}
+-if class com.android.model.responses.base.error.Error
+-keepnames class kotlin.jvm.internal.DefaultConstructorMarker
+-if class com.android.model.responses.base.error.Error
+-keepclassmembers class com.android.model.responses.base.error.Error {
+    public synthetic <init>(java.lang.String,java.lang.Long,int,kotlin.jvm.internal.DefaultConstructorMarker);
+}
+
+-if class com.android.model.responses.base.pagination.PaginatedArrayResponseWrapper
+-keepnames class com.android.model.responses.base.pagination.PaginatedArrayResponseWrapper
+-if class com.android.model.responses.base.pagination.PaginatedArrayResponseWrapper
+-keep class com.android.model.responses.base.pagination.PaginatedArrayResponseWrapperJsonAdapter {
+    public <init>(com.squareup.moshi.Moshi,java.lang.reflect.Type[]);
+}
+
+-if class com.android.model.responses.base.pagination.PagesLinks
+-keepnames class com.android.model.responses.base.pagination.PagesLinks
+-if class com.android.model.responses.base.pagination.PagesLinks
+-keep class com.android.model.responses.base.pagination.PagesLinksJsonAdapter {
+    public <init>(com.squareup.moshi.Moshi);
+}
+

@@ -34,7 +34,8 @@
 - [OkHttp](https://github.com/square/okhttp)
 - [KotlinX](https://github.com/Kotlin/kotlinx.serialization)
 
-##Screenshots:
 
-![img2.jpg](img2.jpg)
-![img2.jpg](img2.jpg)
+###Screenshots:
+
+![img2.png](img2.png)
+![img2.png](img2.png)

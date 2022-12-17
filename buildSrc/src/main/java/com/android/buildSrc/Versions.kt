@@ -54,6 +54,38 @@ object Versions {
     const val rxjava3 = "3.1.3"
     const val rxKotlin = "3.0.1"
     const val glide = "4.12.0"
+    const val CORE = "1.7.10"
+    const val COROUTINES = "1.6.3"
+    const val DATE_TIME = "0.3.2"
+    const val ATOMICS = "0.18.3"
+    const val COIL = "2.2.0"
+    object Android {
+        const val ACTIVITY_COMPOSE = "1.4.0"
+        const val COMPOSE = "1.3.0"
+        const val COMPOSE_UTIL = "1.2.1"
+        const val CONSTRAINT_LAYOUT = "1.0.1"
+        const val APPCOMPAT = "1.4.2"
+        const val MATERIAL = "1.6.1"
+        const val MATERIAL3 = "1.0.0-beta03"
+        const val NAVIGATION = "2.5.1"
+        const val COMPOSE_DESTINATION = "1.7.25-beta"
+        const val VIEW_MODEL = "2.5.1"
+        const val CORE_KTX = "1.8.0"
+        const val COLLECTION_KTX = "1.2.0"
+        const val ACTIVITY_KTX = "1.4.0"
+        const val FRAGMENT_KTX = "1.5.0"
+        const val PALETTE_KTX = "1.0.0"
+        const val WORKER_KTX = "2.7.1"
+        const val HILT_WORKER_KTX = "1.0.0"
+        const val ACCOMPANIST_PAGER = "0.23.1"
+        const val ACCOMPANIST_PAGER_INDICATORS = "0.23.1"
+        const val ACCOMPANIST_SYSTEM_UI = "0.26.2-beta"
+        const val OTP_VIEW = "1.0"
 
+    }
+    object Injection {
+        const val DAGGER = "2.42"
+        const val COMPOSE = "1.0.0"
+    }
 
 }

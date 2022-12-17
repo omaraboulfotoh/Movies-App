@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Movies App</string>
+
+
+    <string name="error">Error</string>
+    <string name="got_it">Got it!</string>
+    <string name="search">Search…</string>
+    <string name="network_error_message">\"No internet connection, please check your connection and try again.\"</string>
+    <string name="server_time_issue_message">\"Looks like the server is taking too long to respond, please try again later.\"</string>
+    <string name="done">Done</string>
+    <string name="unknown">Unknown</string>
+    <string name="success">Success</string>
+
+
 </resources>

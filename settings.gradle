@@ -3,6 +3,7 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        mavenLocal()
     }
 }
 dependencyResolutionManagement {
@@ -10,12 +11,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
         maven { url 'https://jitpack.io' }
     }
 }
 rootProject.name = "Movies App"
 include ':app'
-include ':core'
 include ':remote'
 include ':model'
 include ':local'

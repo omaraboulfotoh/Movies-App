@@ -39,14 +39,14 @@ android {
     productFlavors {
         dev {
             dimension 'default'
-            buildConfigField "String", "BASE_URL", "\"http://67.207.85.185:8082/api/\""
-            buildConfigField "String", "IMAGE_BASE_URL", "\"https:\""
+            buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
+            buildConfigField "String", "IMAGE_BASE_URL", "\"https://developers.themoviedb.org/3/getting-started/images\""
             versionNameSuffix "-dev"
         }
         prod {
             dimension 'default'
-            buildConfigField "String", "BASE_URL", "\"http://67.207.85.185:8082/api/\""
-            buildConfigField "String", "IMAGE_BASE_URL", "\"https:\""
+            buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
+            buildConfigField "String", "IMAGE_BASE_URL", "\"https://developers.themoviedb.org/3/getting-started/images\""
             versionNameSuffix "-prod"
         }
     }
@@ -169,7 +169,6 @@ dependencies {
     implementation Dependencies.COMPOSE
     implementation Dependencies.HILT
     implementation Dependencies.COMPOSE_VIEW_MODEL
-
 
 
 }

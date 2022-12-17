@@ -12,13 +12,16 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import com.squareup.moshi.`internal`.Util
 import java.lang.NullPointerException
+import java.lang.reflect.Constructor
 import java.lang.reflect.Type
 import kotlin.Array
+import kotlin.Int
 import kotlin.String
 import kotlin.Suppress
 import kotlin.Unit
 import kotlin.collections.List
 import kotlin.collections.emptySet
+import kotlin.jvm.Volatile
 import kotlin.text.buildString
 
 public class PaginatedArrayResponseWrapperJsonAdapter<T>(
@@ -31,33 +34,52 @@ public class PaginatedArrayResponseWrapperJsonAdapter<T>(
     }
   }
 
-  private val options: JsonReader.Options = JsonReader.Options.of("data", "links", "meta")
+  private val options: JsonReader.Options = JsonReader.Options.of("results", "page", "totalPages",
+      "totalResults")
 
   private val listOfTNullableAnyAdapter: JsonAdapter<List<T>> =
-      moshi.adapter(Types.newParameterizedType(List::class.java, types[0]), emptySet(), "data")
+      moshi.adapter(Types.newParameterizedType(List::class.java, types[0]), emptySet(), "results")
 
-  private val pagesLinksAdapter: JsonAdapter<PagesLinks> = moshi.adapter(PagesLinks::class.java,
-      emptySet(), "links")
+  private val intAdapter: JsonAdapter<Int> = moshi.adapter(Int::class.java, emptySet(), "page")
 
-  private val pageMetaAdapter: JsonAdapter<PageMeta> = moshi.adapter(PageMeta::class.java,
-      emptySet(), "meta")
+  @Volatile
+  private var constructorRef: Constructor<PaginatedArrayResponseWrapper<T>>? = null
 
   public override fun toString(): String = buildString(51) {
       append("GeneratedJsonAdapter(").append("PaginatedArrayResponseWrapper").append(')') }
 
   public override fun fromJson(reader: JsonReader): PaginatedArrayResponseWrapper<T> {
-    var data_: List<T>? = null
-    var links: PagesLinks? = null
-    var meta: PageMeta? = null
+    var results: List<T>? = null
+    var page: Int? = 0
+    var totalPages: Int? = 0
+    var totalResults: Int? = 0
+    var mask0 = -1
     reader.beginObject()
     while (reader.hasNext()) {
       when (reader.selectName(options)) {
-        0 -> data_ = listOfTNullableAnyAdapter.fromJson(reader) ?:
-            throw Util.unexpectedNull("data_", "data", reader)
-        1 -> links = pagesLinksAdapter.fromJson(reader) ?: throw Util.unexpectedNull("links",
-            "links", reader)
-        2 -> meta = pageMetaAdapter.fromJson(reader) ?: throw Util.unexpectedNull("meta", "meta",
-            reader)
+        0 -> {
+          results = listOfTNullableAnyAdapter.fromJson(reader) ?:
+              throw Util.unexpectedNull("results", "results", reader)
+          // $mask = $mask and (1 shl 0).inv()
+          mask0 = mask0 and 0xfffffffe.toInt()
+        }
+        1 -> {
+          page = intAdapter.fromJson(reader) ?: throw Util.unexpectedNull("page", "page", reader)
+          // $mask = $mask and (1 shl 1).inv()
+          mask0 = mask0 and 0xfffffffd.toInt()
+        }
+        2 -> {
+          totalPages = intAdapter.fromJson(reader) ?: throw Util.unexpectedNull("totalPages",
+              "totalPages", reader)
+          // $mask = $mask and (1 shl 2).inv()
+          mask0 = mask0 and 0xfffffffb.toInt()
+        }
+        3 -> {
+          totalResults = intAdapter.fromJson(reader) ?: throw Util.unexpectedNull("totalResults",
+              "totalResults", reader)
+          // $mask = $mask and (1 shl 3).inv()
+          mask0 = mask0 and 0xfffffff7.toInt()
+        }
         -1 -> {
           // Unknown name, skip it.
           reader.skipName()
@@ -66,11 +88,32 @@ public class PaginatedArrayResponseWrapperJsonAdapter<T>(
       }
     }
     reader.endObject()
-    return PaginatedArrayResponseWrapper<T>(
-        `data` = data_ ?: throw Util.missingProperty("data_", "data", reader),
-        links = links ?: throw Util.missingProperty("links", "links", reader),
-        meta = meta ?: throw Util.missingProperty("meta", "meta", reader)
-    )
+    if (mask0 == 0xfffffff0.toInt()) {
+      // All parameters with defaults are set, invoke the constructor directly
+      return  PaginatedArrayResponseWrapper<T>(
+          results = results as List<T>,
+          page = page as Int,
+          totalPages = totalPages as Int,
+          totalResults = totalResults as Int
+      )
+    } else {
+      // Reflectively invoke the synthetic defaults constructor
+      @Suppress("UNCHECKED_CAST")
+      val localConstructor: Constructor<PaginatedArrayResponseWrapper<T>> = this.constructorRef ?:
+          (PaginatedArrayResponseWrapper::class.java.getDeclaredConstructor(List::class.java,
+          Int::class.javaPrimitiveType, Int::class.javaPrimitiveType, Int::class.javaPrimitiveType,
+          Int::class.javaPrimitiveType,
+          Util.DEFAULT_CONSTRUCTOR_MARKER) as Constructor<PaginatedArrayResponseWrapper<T>>).also {
+          this.constructorRef = it }
+      return localConstructor.newInstance(
+          results,
+          page,
+          totalPages,
+          totalResults,
+          mask0,
+          /* DefaultConstructorMarker */ null
+      )
+    }
   }
 
   public override fun toJson(writer: JsonWriter, value_: PaginatedArrayResponseWrapper<T>?): Unit {
@@ -78,12 +121,14 @@ public class PaginatedArrayResponseWrapperJsonAdapter<T>(
       throw NullPointerException("value_ was null! Wrap in .nullSafe() to write nullable values.")
     }
     writer.beginObject()
-    writer.name("data")
-    listOfTNullableAnyAdapter.toJson(writer, value_.`data`)
-    writer.name("links")
-    pagesLinksAdapter.toJson(writer, value_.links)
-    writer.name("meta")
-    pageMetaAdapter.toJson(writer, value_.meta)
+    writer.name("results")
+    listOfTNullableAnyAdapter.toJson(writer, value_.results)
+    writer.name("page")
+    intAdapter.toJson(writer, value_.page)
+    writer.name("totalPages")
+    intAdapter.toJson(writer, value_.totalPages)
+    writer.name("totalResults")
+    intAdapter.toJson(writer, value_.totalResults)
     writer.endObject()
   }
 }

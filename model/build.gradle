@@ -40,6 +40,6 @@ dependencies {
     kapt(Dependencies.moshiCodegen)
 
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.7.10"
-    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0"
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-runtime:1.0-M1-1.4.0-rc'
 
 }

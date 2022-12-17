@@ -14,6 +14,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.android.moviesapp.BuildConfig
 import com.android.moviesapp.presentation.theme.MovieTheme
 import com.android.moviesapp.presentation.theme.Shapes
 
@@ -24,10 +25,10 @@ fun RemoteImage(
     modifier: Modifier = Modifier,
     alignment: Alignment = Alignment.Center,
     contentScale: ContentScale = ContentScale.Crop,
-    alpha: Float = DefaultAlpha
+    alpha: Float = DefaultAlpha,
 ) {
     AsyncImage(
-        model = imageUrl,
+        model = "${BuildConfig.IMAGE_BASE_URL}$imageUrl",
         contentDescription = description,
         modifier = modifier,
         alignment = alignment,
@@ -43,7 +44,7 @@ fun DashLine(
     modifier: Modifier = Modifier,
     height: Dp = MovieTheme.spacing.xs,
     width: Dp = 112.dp,
-    background: Color = Color.Black
+    background: Color = Color.Black,
 ) {
     Spacer(
         modifier = modifier

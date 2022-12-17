@@ -11,3 +11,7 @@ val Shapes = Shapes(
 )
 
 val Shapes_MediumX: RoundedCornerShape = RoundedCornerShape(8.dp)
+val SmallRoundedCornerImage = RoundedCornerShape(6.dp)
+val MediumRoundedCornerImage = RoundedCornerShape(8.dp)
+
+val SmallRoundedCornerCard = RoundedCornerShape(6.dp)

@@ -68,7 +68,7 @@ data class AbsTypography(
     val h5SemiBold: TextStyle =
         h5.copy(fontWeight = FontWeight.SemiBold),
     val h7Bold: TextStyle =
-        h5Bold.copy(fontSize = 18.sp),
+        h5Bold.copy(fontSize = 20.sp),
     val subtitle1: TextStyle =
         TextStyle(
             fontFamily = OpenSans,
@@ -92,7 +92,7 @@ data class AbsTypography(
     val body2: TextStyle =
         TextStyle(
             fontFamily = OpenSans,
-            fontSize = 14.sp,
+            fontSize = 15.sp,
             fontWeight = FontWeight.Normal
         ),
     val body2Bold: TextStyle =

@@ -43,7 +43,7 @@ fun SectionTitle(
     maxLines: Int = Int.MAX_VALUE,
     textAlign: TextAlign = TextAlign.Center,
     color: Color = MovieTheme.colors.primaryText,
-    style: TextStyle = MovieTheme.typography.h5Bold,
+    style: TextStyle = MovieTheme.typography.h7Bold,
 ) =
     Title(
         text,
@@ -88,7 +88,7 @@ fun MessageBody(
     maxLines: Int = Int.MAX_VALUE,
     textAlign: TextAlign = TextAlign.Center,
     color: Color = MovieTheme.colors.secondaryText,
-    style: TextStyle = MovieTheme.typography.body1Medium,
+    style: TextStyle = MovieTheme.typography.body2,
 ) {
     Text(
         text = text,

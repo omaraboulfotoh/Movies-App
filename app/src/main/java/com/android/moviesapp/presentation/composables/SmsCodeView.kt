@@ -24,7 +24,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.core.text.isDigitsOnly
-import com.android.moviesapp.presentation.theme.MovieTheme
 import com.android.moviesapp.presentation.theme.Shapes_MediumX
 
 @OptIn(ExperimentalComposeUiApi::class)

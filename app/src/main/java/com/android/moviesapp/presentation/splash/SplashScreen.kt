@@ -1,12 +1,13 @@
 package com.android.moviesapp.presentation.splash
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.android.moviesapp.common.getActivity
+import com.android.moviesapp.common.navigateAndClearBackStack
 import com.android.moviesapp.common.sideEffect
 import com.android.moviesapp.common.viewState
-import com.android.moviesapp.presentation.app.MainActivity
+import com.android.moviesapp.presentation.destinations.MoviesListScreenDestination
+import com.android.moviesapp.presentation.splash.SplashContract.Effect
+import com.android.moviesapp.presentation.splash.SplashContract.Event
 import com.android.moviesapp.presentation.splash.composables.SplashScreenContent
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
@@ -21,11 +22,12 @@ fun SplashScreen(
     navigator: DestinationsNavigator,
 ) {
     val state = viewModel.viewState()
-    val intent = LocalContext.current.getActivity<MainActivity>()?.intent
 
+    viewModel.setEvent(Event.StartScreen)
     viewModel.sideEffect { effect ->
         when (effect) {
-            SplashContract.Effect.Navigation.GoToHome -> {}
+            Effect.Navigation.GoToHome ->
+                navigator.navigateAndClearBackStack(MoviesListScreenDestination)
         }
     }
 

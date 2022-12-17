@@ -20,22 +20,22 @@ import javax.inject.Provider;
     "rawtypes"
 })
 public final class MovieUseCase_Factory implements Factory<MovieUseCase> {
-  private final Provider<MovieRepo> authRepoProvider;
+  private final Provider<MovieRepo> movieRepoProvider;
 
-  public MovieUseCase_Factory(Provider<MovieRepo> authRepoProvider) {
-    this.authRepoProvider = authRepoProvider;
+  public MovieUseCase_Factory(Provider<MovieRepo> movieRepoProvider) {
+    this.movieRepoProvider = movieRepoProvider;
   }
 
   @Override
   public MovieUseCase get() {
-    return newInstance(authRepoProvider.get());
+    return newInstance(movieRepoProvider.get());
   }
 
-  public static MovieUseCase_Factory create(Provider<MovieRepo> authRepoProvider) {
-    return new MovieUseCase_Factory(authRepoProvider);
+  public static MovieUseCase_Factory create(Provider<MovieRepo> movieRepoProvider) {
+    return new MovieUseCase_Factory(movieRepoProvider);
   }
 
-  public static MovieUseCase newInstance(MovieRepo authRepo) {
-    return new MovieUseCase(authRepo);
+  public static MovieUseCase newInstance(MovieRepo movieRepo) {
+    return new MovieUseCase(movieRepo);
   }
 }

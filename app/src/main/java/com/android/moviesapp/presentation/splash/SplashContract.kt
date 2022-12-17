@@ -8,7 +8,9 @@ class SplashContract {
 
     object State : ViewState
 
-    sealed class Event : ViewEvent
+    sealed class Event : ViewEvent {
+        object StartScreen : Event()
+    }
 
     sealed class Effect : ViewSideEffect {
         sealed class Navigation : Effect() {

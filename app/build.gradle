@@ -40,13 +40,15 @@ android {
         dev {
             dimension 'default'
             buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
-            buildConfigField "String", "IMAGE_BASE_URL", "\"https://image.tmdb.org/t/p/w500\""
+            buildConfigField "String", "IMAGE_BASE_URL", "\"https://image.tmdb.org/t/p/original\""
+            buildConfigField "String", "MDB_ID", "\"c9856d0cb57c3f14bf75bdc6c063b8f3\""
             versionNameSuffix "-dev"
         }
         prod {
             dimension 'default'
             buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
-            buildConfigField "String", "IMAGE_BASE_URL", "\"https://image.tmdb.org/t/p/w500\""
+            buildConfigField "String", "IMAGE_BASE_URL", "\"https://image.tmdb.org/t/p/original\""
+            buildConfigField "String", "MDB_ID", "\"c9856d0cb57c3f14bf75bdc6c063b8f3\""
             versionNameSuffix "-prod"
         }
     }

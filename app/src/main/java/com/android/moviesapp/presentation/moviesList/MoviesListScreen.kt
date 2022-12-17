@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.android.moviesapp.common.sideEffect
 import com.android.moviesapp.common.viewState
+import com.android.moviesapp.presentation.destinations.MovieDetailsScreenDestination
 import com.android.moviesapp.presentation.moviesList.composables.MoviesListScreenContent
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -20,9 +21,8 @@ fun MoviesListScreen(
 
     viewModel.sideEffect { effect ->
         when (effect) {
-            is MoviesListContract.Effect.Navigation.GoToMovieDetails -> {
-
-            }
+            is MoviesListContract.Effect.Navigation.GoToMovieDetails -> navigator.navigate(
+                MovieDetailsScreenDestination(effect.item))
         }
     }
 

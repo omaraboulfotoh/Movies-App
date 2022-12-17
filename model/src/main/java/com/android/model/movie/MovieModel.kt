@@ -18,6 +18,14 @@ data class MovieModel(
     val overview: String? = null,
     @Json(name = "popularity")
     val popularity: Double? = null,
+    @Json(name = "status")
+    val status: String? = null,
+    @Json(name = "tagline")
+    val tagline: String? = null,
+    @Json(name = "homepage")
+    val homepage: String? = null,
+    @Json(name = "backdrop_path")
+    val backdrop: String? = null,
     @Json(name = "poster_path")
     val poster: String? = null,
     @Json(name = "release_date")

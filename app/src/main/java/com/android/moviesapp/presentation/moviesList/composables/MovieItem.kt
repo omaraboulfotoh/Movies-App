@@ -30,7 +30,7 @@ fun MovieItem(
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .heightIn(120.dp),
+            .height(140.dp),
         border = BorderStroke(width = 1.dp, MovieTheme.colors.stroke),
         shape = SmallRoundedCornerCard,
         backgroundColor = Color.White,
@@ -68,7 +68,6 @@ fun MovieItem(
 
     }
 }
-
 
 @Preview(
     showBackground = true,

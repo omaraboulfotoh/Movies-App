@@ -10,4 +10,9 @@ class MovieUseCase @Inject constructor(private val movieRepo: MovieRepo) {
         page: Int,
     ) = movieRepo.getTrendMovies(apiKey, page)
 
+    suspend fun getMovieDetails(
+        apiKey: String,
+        movieId: Int,
+    ) = movieRepo.getMovieDetails(apiKey, movieId)
+
 }

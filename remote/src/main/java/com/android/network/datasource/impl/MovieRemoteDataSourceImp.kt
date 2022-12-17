@@ -2,7 +2,6 @@ package com.android.network.datasource.impl
 
 import com.android.model.movie.MovieModel
 import com.android.model.responses.base.MoviesListResponse
-import com.android.model.responses.base.pagination.PaginatedArrayResponseWrapper
 import com.android.network.datasource.MovieRemoteDataSource
 import com.android.network.service.MovieApiServices
 import retrofit2.Response
@@ -16,4 +15,7 @@ class MovieRemoteDataSourceImp @Inject constructor(private val apiServices: Movi
         page: Int,
     ): Response<MoviesListResponse> =
         apiServices.getTrendMovies(apiKey, page)
+
+    override suspend fun getMovieDetails(apiKey: String, movieId: Int): Response<MovieModel> =
+        apiServices.getMovieDetails(movieId, apiKey)
 }
